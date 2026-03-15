@@ -18,6 +18,9 @@ No build tools, no frameworks, no dependencies — just open index.html in a bro
 - `styles/main.css` — all styles
 - `scripts/main.js` — all JavaScript
 
+## Rules
+- Never auto-commit without asking me first.
+
 ## Pointers
 See ../../projects/canvas/README.md for the full module guide.
 See ../../context/ for detailed Claude Code feature documentation.
