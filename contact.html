@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book Mahdood — Contact</title>
+    <meta name="description" content="Book Mahdood for your venue or event. Listening rooms, festivals, arts spaces, and private events." />
+    <link rel="stylesheet" href="styles/main.css" />
+  </head>
+  <body>
+
+    <!-- Navigation -->
+    <nav class="site-nav">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo">MAHDOOD</a>
+        <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="music.html">Music</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="shows.html">Shows</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <main>
+
+      <!-- Page hero -->
+      <section class="page-hero">
+        <p class="section-label">Inquiries</p>
+        <h1 class="page-title">Book Mahdood</h1>
+      </section>
+
+      <!-- Contact grid -->
+      <section class="container">
+        <div class="contact-grid">
+
+          <!-- Left: intro + social -->
+          <div class="contact-intro">
+            <h2>Let's make it happen.</h2>
+            <p>
+              Available for listening rooms, arts spaces, festival stages,
+              private events, and late-night bookings. Both solo electronic sets
+              and jamband configurations available — reach out and let's talk through
+              what fits your event.
+            </p>
+
+            <p class="section-label" style="margin-bottom: var(--space-sm);">Find me online</p>
+            <ul class="contact-social">
+              <li><a href="#">SoundCloud — mahdood</a></li>
+              <li><a href="#">Spotify — Mahdood</a></li>
+              <li><a href="#">Instagram — @mahdood</a></li>
+              <li><a href="#">Bandcamp — mahdood.bandcamp.com</a></li>
+            </ul>
+          </div>
+
+          <!-- Right: booking form -->
+          <!-- Using mailto: for now — replace action with Formspree endpoint for live use -->
+          <form
+            class="contact-form"
+            action="mailto:booking@mahdood.com"
+            method="post"
+            enctype="text/plain">
+
+            <div class="form-group">
+              <label for="name">Your Name</label>
+              <input type="text" id="name" name="name" placeholder="Jane Smith" required />
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" placeholder="jane@venue.com" required />
+            </div>
+
+            <div class="form-group">
+              <label for="event-type">Event / Venue Type</label>
+              <select id="event-type" name="event-type">
+                <option value="">Select one…</option>
+                <option value="listening-room">Listening Room</option>
+                <option value="bar-venue">Bar / Live Music Venue</option>
+                <option value="festival">Festival / Open Air</option>
+                <option value="private">Private Event</option>
+                <option value="arts-space">Arts Space / Gallery</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Tell me about the show</label>
+              <textarea
+                id="message"
+                name="message"
+                placeholder="Venue name, date range, capacity, budget, any other details…"
+                required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Send Inquiry</button>
+
+          </form>
+
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <ul class="footer-social">
+          <li><a href="#">SoundCloud</a></li>
+          <li><a href="#">Spotify</a></li>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">Bandcamp</a></li>
+        </ul>
+        <a href="contact.html" class="footer-book">Book Mahdood</a>
+        <p class="footer-copy">&copy; 2026 Mahdood. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="scripts/main.js"></script>
+  </body>
+</html>
