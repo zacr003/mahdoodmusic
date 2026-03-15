@@ -4,6 +4,16 @@
 A personal portfolio site built from scratch using plain HTML, CSS, and JavaScript.
 No build tools, no frameworks, no dependencies — just open index.html in a browser.
 
+## Goal
+Build a personal portfolio site with 5 pages: home, about, projects, blog, and contact.
+The finished site should be clean, minimal, and deployable as static HTML.
+
+## Design
+- Color scheme: TBD — to be decided in plan mode
+- Typography: system fonts for now
+- Style: clean and minimal
+- New pages go in the root directory alongside index.html
+
 ## Language and Stack
 - HTML5, CSS3, JavaScript (ES6+)
 - No build step required
