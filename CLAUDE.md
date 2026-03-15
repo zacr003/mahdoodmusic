@@ -20,6 +20,11 @@ No build tools, no frameworks, no dependencies — just open index.html in a bro
 
 ## Rules
 - Never auto-commit without asking me first.
+- Never delete files without asking me first.
+- Always explain what you're about to do before doing it.
+- Keep CSS organized — group related properties together and add a comment above each section.
+- Don't add frameworks or libraries without asking — keep it plain HTML/CSS/JS.
+- When something breaks, explain why before fixing it.
 
 ## Pointers
 See ../../projects/canvas/README.md for the full module guide.
