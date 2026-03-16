@@ -9,10 +9,12 @@ Build a personal portfolio site with 5 pages: home, about, projects, blog, and c
 The finished site should be clean, minimal, and deployable as static HTML.
 
 ## Design
-- Color scheme: TBD — to be decided in plan mode
-- Typography: system fonts for now
-- Style: clean and minimal
+- Dark background, warm gold accent — see full design system in docs/style-guide.md
+- Style: minimal, typography-forward, let the music do the talking
 - New pages go in the root directory alongside index.html
+
+@docs/style-guide.md
+@docs/sitemap.md
 
 ## Language and Stack
 - HTML5, CSS3, JavaScript (ES6+)
