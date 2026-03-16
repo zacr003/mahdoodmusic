@@ -54,11 +54,11 @@ def main():
                 broken.append((fname, link))
 
     if broken:
-        print("Broken internal links found:")
         for source, target in broken:
-            print(f"  {source} → {target} (missing)")
+            print(f"  {source} → {target} (missing)", file=sys.stderr)
         sys.exit(2)  # Block — forces Claude to address before finishing
 
+    print(json.dumps({"continue": True}))
     sys.exit(0)
 
 
