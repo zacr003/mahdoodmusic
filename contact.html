@@ -49,7 +49,7 @@
               what fits your event.
             </p>
 
-            <p class="section-label" style="margin-bottom: var(--space-sm);">Find me online</p>
+            <p class="section-label contact-social-label">Find me online</p>
             <ul class="contact-social">
               <li><a href="#">SoundCloud — mahdood</a></li>
               <li><a href="#">Spotify — Mahdood</a></li>
@@ -64,7 +64,8 @@
             class="contact-form"
             action="mailto:booking@mahdood.com"
             method="post"
-            enctype="text/plain">
+            enctype="text/plain"
+            novalidate>
 
             <div class="form-group">
               <label for="name">Your Name</label>
@@ -78,7 +79,7 @@
 
             <div class="form-group">
               <label for="event-type">Event / Venue Type</label>
-              <select id="event-type" name="event-type">
+              <select id="event-type" name="event-type" required>
                 <option value="">Select one…</option>
                 <option value="listening-room">Listening Room</option>
                 <option value="bar-venue">Bar / Live Music Venue</option>
@@ -101,6 +102,16 @@
             <button type="submit" class="btn btn-primary">Send Inquiry</button>
 
           </form>
+
+          <!-- Success state — shown after valid submission -->
+          <div class="form-success" role="alert" aria-live="polite">
+            <p><strong>Message sent!</strong> Thanks, <span class="form-success__name"></span> — I'll get back to you soon.</p>
+          </div>
+
+          <!-- Error state — shown if submission fails -->
+          <div class="form-error" role="alert" aria-live="assertive">
+            <p><strong>Something went wrong.</strong> Please try emailing <a href="mailto:booking@mahdood.com">booking@mahdood.com</a> directly.</p>
+          </div>
 
         </div>
       </section>

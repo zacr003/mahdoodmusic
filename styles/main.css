@@ -22,6 +22,7 @@ body, h1, h2, h3, h4, p, ul, ol {
   --space-md:           1rem;
   --space-lg:           2rem;
   --space-xl:           4rem;
+  --color-border:       #2a2a2a;
   --radius:             4px;
   --nav-height:         64px;
 }
@@ -48,6 +49,11 @@ a {
 
 a:hover {
   text-decoration: underline;
+}
+
+a:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
 }
 
 img {
@@ -92,6 +98,11 @@ img {
   opacity: 0.85;
 }
 
+.nav-logo:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
 .nav-links {
   display: flex;
   gap: var(--space-lg);
@@ -112,6 +123,11 @@ img {
   color: var(--color-accent);
 }
 
+.nav-links a:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
 /* Hamburger (mobile) */
 .nav-toggle {
   display: none;
@@ -129,6 +145,15 @@ img {
   height: 2px;
   background: var(--color-text);
   transition: transform 0.3s, opacity 0.3s;
+}
+
+.nav-toggle:hover {
+  opacity: 0.8;
+}
+
+.nav-toggle:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
 }
 
 /* ── Footer ── */
@@ -168,6 +193,11 @@ img {
   color: var(--color-accent);
 }
 
+.footer-social a:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
 .footer-book {
   display: inline-block;
   color: var(--color-accent);
@@ -185,6 +215,11 @@ img {
   background: var(--color-accent);
   color: #0d0d0d;
   text-decoration: none;
+}
+
+.footer-book:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
 }
 
 .footer-copy {
@@ -230,6 +265,11 @@ main {
   color: #0d0d0d;
 }
 
+.btn-primary:focus-visible {
+  outline: 2px solid var(--color-text);
+  outline-offset: 2px;
+}
+
 .btn-outline {
   background: transparent;
   border: 1px solid var(--color-accent);
@@ -240,6 +280,11 @@ main {
   background: var(--color-accent);
   color: #0d0d0d;
   text-decoration: none;
+}
+
+.btn-outline:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
 }
 
 /* ── Section headings ── */
@@ -533,6 +578,15 @@ main {
   color: var(--color-accent);
 }
 
+.contact-social a:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.contact-social-label {
+  margin-bottom: var(--space-sm);
+}
+
 /* Contact form */
 .contact-form {
   display: flex;
@@ -557,7 +611,7 @@ main {
 .form-group select,
 .form-group textarea {
   background: var(--color-surface);
-  border: 1px solid #333;
+  border: 1px solid var(--color-border);
   border-radius: var(--radius);
   color: var(--color-text);
   font-family: var(--font-sans);
@@ -567,10 +621,11 @@ main {
   width: 100%;
 }
 
-.form-group input:focus,
-.form-group select,
-.form-group textarea:focus {
-  outline: none;
+.form-group input:focus-visible,
+.form-group select:focus-visible,
+.form-group textarea:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
   border-color: var(--color-accent);
 }
 
@@ -581,6 +636,45 @@ main {
 .form-group textarea {
   min-height: 140px;
   resize: vertical;
+}
+
+/* Invalid field state */
+.form-group input.is-invalid,
+.form-group select.is-invalid,
+.form-group textarea.is-invalid {
+  border-color: #c0392b;
+}
+
+.form-group__error {
+  font-size: 0.75rem;
+  color: #c0392b;
+  margin-top: var(--space-xs);
+}
+
+/* Form feedback banners */
+.form-success,
+.form-error {
+  display: none;
+  padding: var(--space-md) var(--space-lg);
+  border-radius: var(--radius);
+  margin-top: var(--space-md);
+}
+
+.form-success {
+  background: rgba(212, 160, 23, 0.1);
+  border: 1px solid var(--color-accent-muted);
+  color: var(--color-text);
+}
+
+.form-error {
+  background: rgba(192, 57, 43, 0.1);
+  border: 1px solid #c0392b;
+  color: var(--color-text);
+}
+
+.form-success.is-visible,
+.form-error.is-visible {
+  display: block;
 }
 
 /* ── Blog page ── */
@@ -666,7 +760,7 @@ main {
   text-transform: uppercase;
   color: var(--color-text-muted);
   background: var(--color-bg);
-  border: 1px solid #333;
+  border: 1px solid var(--color-border);
   border-radius: var(--radius);
   padding: var(--space-xs) var(--space-sm);
 }
@@ -913,6 +1007,11 @@ main {
 
 .faq-item__answer a:hover {
   text-decoration: underline;
+}
+
+.faq-item__answer a:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
 }
 
 /* ── Responsive ── */

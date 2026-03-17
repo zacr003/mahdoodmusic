@@ -55,6 +55,16 @@
         ]
       }
     ],
+    "SubagentStop": [
+      {
+        "hooks": [
+          {
+            "type": "prompt",
+            "prompt": "A subagent just finished. Review the subagent's output and determine: (1) Did it produce meaningful output? (2) Were there any errors or failures? (3) Is the work complete and usable? Respond with JSON only: {\"ok\": true, \"reason\": \"...\"} if the work is complete, or {\"ok\": false, \"reason\": \"...\"} if it failed or produced no output. Do not include any text outside the JSON."
+          }
+        ]
+      }
+    ],
     "Stop": [
       {
         "hooks": [
