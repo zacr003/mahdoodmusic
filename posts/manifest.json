@@ -1,0 +1,23 @@
+[
+  {
+    "slug": "building-a-live-set",
+    "title": "Building a Live Set Without a Laptop",
+    "date": "2026-03-01",
+    "tags": ["Live Performance", "MPC", "Setup"],
+    "excerpt": "When I decided to ditch the laptop, everyone thought I was crazy. Here's how I rebuilt my entire set around the MPC Live 2 and why I'd never go back to staring at a screen on stage."
+  },
+  {
+    "slug": "jazz-harmony-on-mpc",
+    "title": "Jazz Harmony on the MPC: Voicings That Don't Suck",
+    "date": "2026-02-12",
+    "tags": ["Theory", "Production", "Piano"],
+    "excerpt": "Most beat makers stay in pentatonic land. Bringing jazz voicings into sample-based production sounds intimidating — until you break down what's actually happening under the hood."
+  },
+  {
+    "slug": "playing-vs-performing",
+    "title": "The Difference Between Playing Live and Performing Live",
+    "date": "2026-01-28",
+    "tags": ["Live Performance", "Philosophy"],
+    "excerpt": "There's a version of \"live\" where you hit play and tweak knobs. Then there's the version where every note is a real-time decision. I'm only interested in the second one."
+  }
+]

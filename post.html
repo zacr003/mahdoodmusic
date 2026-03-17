@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Blog — Mahdood</title>
-    <meta name="description" content="Thoughts on live electronic music, production techniques, and the creative process from Mahdood." />
+    <title>Post — Mahdood</title>
+    <meta name="description" content="A post from the Mahdood journal." />
     <link rel="stylesheet" href="styles/main.css" />
   </head>
   <body>
@@ -22,32 +22,41 @@
           <li><a href="about.html">About</a></li>
           <li><a href="shows.html">Shows</a></li>
           <li><a href="contact.html">Contact</a></li>
-          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="blog.html" class="active">Blog</a></li>
         </ul>
       </div>
     </nav>
 
     <main>
 
-      <!-- Page hero -->
-      <section class="page-hero">
-        <p class="section-label">Journal</p>
-        <h1 class="page-title">Blog</h1>
-      </section>
-
-      <!-- Tag filter -->
-      <section class="tag-filter-section" aria-label="Filter posts by tag">
+      <article class="post-page">
         <div class="container">
-          <div class="tag-filter" role="group" aria-label="Tag filters"></div>
-        </div>
-      </section>
 
-      <!-- Blog listing -->
-      <section class="blog-listing">
-        <div class="container">
-          <ul class="blog-grid" role="list" aria-live="polite" aria-label="Blog posts"></ul>
+          <!-- Post header -->
+          <header class="post-page__header">
+            <a href="blog.html" class="post-page__back" aria-label="Back to all posts">← Journal</a>
+            <time class="post-page__date" datetime=""></time>
+            <h1 class="post-page__title">Loading…</h1>
+            <ul class="post-page__tags" aria-label="Tags"></ul>
+          </header>
+
+          <!-- Rendered markdown lands here -->
+          <div class="post-page__content" aria-live="polite"></div>
+
+          <!-- Prev / Next navigation -->
+          <nav class="post-nav" aria-label="Post navigation">
+            <a class="post-nav__prev" href="#" hidden>
+              <span class="post-nav__direction">← Older</span>
+              <span class="post-nav__label"></span>
+            </a>
+            <a class="post-nav__next" href="#" hidden>
+              <span class="post-nav__direction">Newer →</span>
+              <span class="post-nav__label"></span>
+            </a>
+          </nav>
+
         </div>
-      </section>
+      </article>
 
     </main>
 
