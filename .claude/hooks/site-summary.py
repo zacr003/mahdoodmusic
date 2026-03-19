@@ -7,7 +7,10 @@ import glob
 project_dir = os.environ.get("CLAUDE_PROJECT_DIR", os.getcwd())
 
 # Count HTML pages
-html_files = glob.glob(os.path.join(project_dir, "*.html"))
+html_files = [
+    f for f in glob.glob(os.path.join(project_dir, "*.html"))
+    if not os.path.basename(f).startswith("eval-")
+]
 page_count = len(html_files)
 
 # Total CSS size

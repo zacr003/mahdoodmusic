@@ -5,6 +5,7 @@ Outputs permissionDecision 'deny' with a clear reason.
 """
 
 import json
+import os
 import re
 import sys
 
@@ -24,8 +25,10 @@ def main():
     file_path = tool_input.get("file_path", "")
     content = tool_input.get("content", "")
 
-    # Only check HTML files
+    # Only check HTML files; skip eval fixtures (intentionally broken)
     if not file_path.endswith(".html"):
+        sys.exit(0)
+    if os.path.basename(file_path).startswith("eval-"):
         sys.exit(0)
 
     # Find all <img> tags

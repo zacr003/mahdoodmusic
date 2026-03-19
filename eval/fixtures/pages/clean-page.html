@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="A well-formed test page used to verify that the eval suite correctly passes clean HTML." />
+    <title>Clean Page — Eval Fixture</title>
+    <link rel="stylesheet" href="styles/main.css" />
+  </head>
+  <body>
+
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="#">Home</a>
+      <a href="#">About</a>
+    </nav>
+
+    <main>
+      <section class="page-hero">
+        <span class="section-label">Fixture</span>
+        <h1>Clean Page</h1>
+      </section>
+
+      <section class="clean-content">
+        <h2>A Section</h2>
+        <p>This page meets all WCAG 2.1 AA requirements used by the accessibility-agent.</p>
+
+        <h3>A Subsection</h3>
+        <p>Heading hierarchy is sequential: h1 → h2 → h3.</p>
+
+        <img src="photo.jpg" alt="A descriptive caption for a meaningful image" />
+        <img src="decoration.png" alt="" />
+
+        <form>
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" autocomplete="name" />
+
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" autocomplete="email" />
+
+          <label for="subject">Subject</label>
+          <select id="subject" name="subject">
+            <option value="booking">Booking enquiry</option>
+            <option value="other">Other</option>
+          </select>
+
+          <button type="submit">Send</button>
+        </form>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>&copy; 2026 Eval Fixture. All rights reserved.</p>
+    </footer>
+
+    <script src="scripts/main.js"></script>
+  </body>
+</html>

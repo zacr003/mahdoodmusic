@@ -1,0 +1,50 @@
+/* ── Eval Fixture: Inconsistent CSS ──────────────────────────────
+   This file intentionally violates the design system rules.
+   The design-agent should flag all issues listed below.
+
+   INTENTIONAL ISSUES:
+   1. Hardcoded color #d4a017 outside :root (should use var(--color-accent))
+   2. Hardcoded color #0d0d0d outside :root (should use var(--color-bg))
+   3. Hardcoded font stack outside :root (should use var(--font-sans))
+   4. Hardcoded spacing 16px / 32px (should use var(--space-md) / var(--space-lg))
+   5. Fixed pixel width 960px on .hero (breaks on small screens)
+   6. .btn-outline has no :hover state
+   7. No :focus or :focus-visible on .btn or .btn-outline
+────────────────────────────────────────────────────────────────── */
+
+:root {
+  --color-accent: #d4a017;
+  --color-bg: #0d0d0d;
+  --font-sans: system-ui, -apple-system, sans-serif;
+  --space-md: 1rem;
+  --space-lg: 2rem;
+  --radius: 4px;
+}
+
+/* Issue 1–4: hardcoded values outside :root */
+.btn {
+  background: #d4a017;                               /* should: var(--color-accent) */
+  color: #0d0d0d;                                    /* should: var(--color-bg) */
+  padding: 16px 32px;                                /* should: var(--space-md) var(--space-lg) */
+  font-family: system-ui, -apple-system, sans-serif; /* should: var(--font-sans) */
+  border-radius: var(--radius);
+  cursor: pointer;
+}
+
+/* Issue 5: fixed pixel width */
+.hero {
+  width: 960px;          /* breaks on mobile — should use max-width + % or clamp() */
+  margin: 0 auto;
+  padding: 48px 0;       /* also not using a --space-* token */
+}
+
+/* Issue 6–7: no :hover, no :focus on outline variant */
+.btn-outline {
+  background: transparent;
+  border: 1px solid #d4a017; /* Issue 1 again: hardcoded color */
+  color: #d4a017;            /* Issue 1 again */
+  padding: 16px 32px;        /* Issue 4 again */
+}
+/* Missing: .btn-outline:hover { ... } */
+/* Missing: .btn:focus-visible { ... } */
+/* Missing: .btn-outline:focus-visible { ... } */

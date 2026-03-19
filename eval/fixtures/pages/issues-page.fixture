@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- INTENTIONAL ISSUE 1: meta description missing -->
+    <title>Issues Page — Eval Fixture</title>
+    <link rel="stylesheet" href="styles/main.css" />
+  </head>
+  <body>
+
+    <nav class="site-nav">
+      <a href="#">Home</a>
+    </nav>
+
+    <main>
+      <section class="page-hero">
+        <h1>Issues Page</h1>
+      </section>
+
+      <section class="issues-content">
+        <!-- INTENTIONAL ISSUE 2: heading jumps h1 → h3, skips h2 -->
+        <h3>A Subsection</h3>
+        <p>This page deliberately has several accessibility and quality problems.</p>
+
+        <!-- INTENTIONAL ISSUE 3: img with no alt attribute -->
+        <img src="photo.jpg" />
+
+        <p>Missing meta description, skipped heading level, and an img without alt.</p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>&copy; 2026 Eval Fixture.</p>
+    </footer>
+
+    <script src="scripts/main.js"></script>
+  </body>
+</html>

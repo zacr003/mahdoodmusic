@@ -1,0 +1,105 @@
+/* ── Eval Fixture: Clean CSS ──────────────────────────────────────
+   This file uses custom properties for everything and provides
+   proper :hover and :focus-visible states on all interactive elements.
+   The design-agent should report zero or near-zero issues.
+────────────────────────────────────────────────────────────────── */
+
+:root {
+  --color-bg:           #0d0d0d;
+  --color-surface:      #1a1a1a;
+  --color-text:         #f0f0f0;
+  --color-text-muted:   #999999;
+  --color-accent:       #d4a017;
+  --color-accent-muted: #8b6914;
+  --font-display:       Georgia, 'Times New Roman', serif;
+  --font-sans:          system-ui, -apple-system, sans-serif;
+  --space-xs:           0.25rem;
+  --space-sm:           0.5rem;
+  --space-md:           1rem;
+  --space-lg:           2rem;
+  --space-xl:           4rem;
+  --radius:             4px;
+}
+
+/* ── Button ── */
+.btn {
+  display: inline-block;
+  padding: var(--space-sm) var(--space-lg);
+  font-family: var(--font-sans);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.btn:hover {
+  opacity: 0.85;
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* ── Primary button variant ── */
+.btn-primary {
+  background: var(--color-accent);
+  color: var(--color-bg);
+  border: none;
+}
+
+/* ── Outline button variant ── */
+.btn-outline {
+  background: transparent;
+  color: var(--color-accent);
+  border: 1px solid var(--color-accent);
+}
+
+.btn-outline:hover {
+  background: var(--color-accent);
+  color: var(--color-bg);
+}
+
+/* ── Card ── */
+.card {
+  background: var(--color-surface);
+  padding: var(--space-md);
+  border: 1px solid var(--color-accent-muted);
+  border-radius: var(--radius);
+}
+
+/* ── Responsive layout ── */
+.card-grid {
+  display: grid;
+  gap: var(--space-md);
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1100px) {
+  .card-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ── Link ── */
+.nav-link {
+  color: var(--color-text-muted);
+  font-family: var(--font-sans);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--color-accent);
+}
+
+.nav-link:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}

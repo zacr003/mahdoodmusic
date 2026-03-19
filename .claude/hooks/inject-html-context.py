@@ -5,6 +5,7 @@ Does not block anything -- only adds additionalContext.
 """
 
 import json
+import os
 import sys
 
 
@@ -22,6 +23,8 @@ def main():
 
     file_path = tool_input.get("file_path", "")
     if not file_path.endswith(".html"):
+        sys.exit(0)
+    if os.path.basename(file_path).startswith("eval-"):
         sys.exit(0)
 
     context = (

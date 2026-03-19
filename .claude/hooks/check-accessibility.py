@@ -53,7 +53,10 @@ def main():
     except Exception:
         pass
 
-    html_files = [f for f in os.listdir(PROJECT_DIR) if f.endswith(".html")]
+    html_files = [
+        f for f in os.listdir(PROJECT_DIR)
+        if f.endswith(".html") and not f.startswith("eval-")
+    ]
     all_issues = []
 
     for fname in html_files:

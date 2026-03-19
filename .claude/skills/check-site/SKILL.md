@@ -9,7 +9,10 @@ Scan all HTML files in the project root and produce a pass/fail quality report.
 
 ## Steps
 
-1. Use Glob to find all `*.html` files in the project root directory.
+1. Use Glob to find all `*.html` files in the project root directory. Exclude the following from scanning — they are not real site pages:
+   - Files whose name starts with `eval-` (intentionally broken test fixtures)
+   - `test.html` (internal dev/validation page)
+   - Anything inside `dist/` (build output, not source)
 
 2. For each HTML file, check the following and record any failures:
 

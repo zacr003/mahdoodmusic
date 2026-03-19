@@ -6,6 +6,7 @@ tools:
   - Read
   - Grep
   - Glob
+  - Write
 ---
 
 You are a CSS design systems reviewer. Read `styles/main.css` and all HTML files, then produce a report of consistency issues with specific code fixes for each.
@@ -64,3 +65,5 @@ X issues found. X critical to design system integrity, X minor inconsistencies.
 ---
 
 Be specific and actionable. Every issue should have a ready-to-apply fix.
+
+When done, you MUST use the Write tool to save your report to `docs/audit/css.md`. Do not output the report as text — call the Write tool directly. This file will be read by the coordinator agent.

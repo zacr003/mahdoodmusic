@@ -1,0 +1,365 @@
+{
+  "version": "1.0",
+  "description": "Evaluation suite for canvas-site skills and agents",
+  "notes": [
+    "Fixtures ending in .fixture are intentionally broken HTML stored under a non-.html",
+    "extension to avoid triggering the enforce-alt.py PreToolUse hook. The runner",
+    "copies them to .html at test time using Node fs directly (no hook fires).",
+    "Pattern strings starting and ending with '/' are treated as regex by the runner."
+  ],
+  "test_cases": [
+
+    {
+      "id": "new-page-valid",
+      "category": "new-page",
+      "description": "Valid name — creates a well-formed page with nav, footer, and meta",
+      "prompt": "/new-page eval-gallery",
+      "setup": [],
+      "teardown": [
+        { "type": "delete_file", "path": "eval-gallery.html" }
+      ],
+      "output_checks": [
+        {
+          "type": "contains",
+          "match": "all",
+          "patterns": ["eval-gallery.html", "created"],
+          "label": "output confirms file was created"
+        }
+      ],
+      "file_checks": [
+        {
+          "type": "exists",
+          "path": "eval-gallery.html",
+          "label": "eval-gallery.html exists on disk"
+        },
+        {
+          "type": "contains",
+          "path": "eval-gallery.html",
+          "match": "all",
+          "patterns": ["<!DOCTYPE html>"],
+          "label": "has DOCTYPE declaration"
+        },
+        {
+          "type": "contains",
+          "path": "eval-gallery.html",
+          "match": "all",
+          "patterns": ["lang="],
+          "label": "html element has lang attribute"
+        },
+        {
+          "type": "contains",
+          "path": "eval-gallery.html",
+          "match": "all",
+          "patterns": ["<title>"],
+          "label": "has title element"
+        },
+        {
+          "type": "contains",
+          "path": "eval-gallery.html",
+          "match": "all",
+          "patterns": ["meta name=\"description\""],
+          "label": "has meta description"
+        },
+        {
+          "type": "contains",
+          "path": "eval-gallery.html",
+          "match": "all",
+          "patterns": ["<main"],
+          "label": "has main element"
+        },
+        {
+          "type": "contains",
+          "path": "eval-gallery.html",
+          "match": "all",
+          "patterns": ["site-nav", "nav-logo"],
+          "label": "nav copied verbatim from index.html (site-nav + nav-logo classes)"
+        },
+        {
+          "type": "contains",
+          "path": "eval-gallery.html",
+          "match": "all",
+          "patterns": ["site-footer"],
+          "label": "footer copied verbatim from index.html (site-footer class)"
+        },
+        {
+          "type": "contains",
+          "path": "eval-gallery.html",
+          "match": "all",
+          "patterns": ["Gallery", "gallery"],
+          "label": "page title or h1 references the page name"
+        },
+        {
+          "type": "contains",
+          "path": "eval-gallery.html",
+          "match": "all",
+          "patterns": ["scripts/main.js"],
+          "label": "includes main.js script tag"
+        }
+      ],
+      "pass_threshold": 9,
+      "scoring_notes": "10 checks total. Pass if ≥9 pass (one grace for minor variation)."
+    },
+
+    {
+      "id": "new-page-empty",
+      "category": "new-page",
+      "description": "Empty name — no malformed file created, no unhandled crash",
+      "prompt": "/new-page",
+      "setup": [],
+      "teardown": [
+        { "type": "delete_file", "path": ".html" },
+        { "type": "delete_file", "path": "undefined.html" }
+      ],
+      "output_checks": [
+        {
+          "type": "not_contains",
+          "match": "any",
+          "patterns": ["Uncaught", "TypeError", "ReferenceError", "SyntaxError"],
+          "label": "no JavaScript-style crash in output"
+        }
+      ],
+      "file_checks": [
+        {
+          "type": "not_exists",
+          "path": ".html",
+          "label": "no file named '.html' created"
+        },
+        {
+          "type": "not_exists",
+          "path": "undefined.html",
+          "label": "no file named 'undefined.html' created"
+        }
+      ],
+      "pass_threshold": 2,
+      "scoring_notes": "Skill must not create a malformed filename when given no argument."
+    },
+
+    {
+      "id": "new-page-duplicate",
+      "category": "new-page",
+      "description": "Duplicate name — CLAUDE.md rule: never overwrite without asking",
+      "prompt": "/new-page eval-existing",
+      "setup": [
+        {
+          "type": "write_file",
+          "path": "eval-existing.html",
+          "content": "<!-- SENTINEL: original content — must not be silently overwritten -->"
+        }
+      ],
+      "teardown": [
+        { "type": "delete_file", "path": "eval-existing.html" }
+      ],
+      "output_checks": [
+        {
+          "type": "contains",
+          "match": "any",
+          "patterns": ["already exists", "exists", "overwrite", "duplicate", "skip", "exist"],
+          "label": "output acknowledges the file already exists"
+        }
+      ],
+      "file_checks": [
+        {
+          "type": "contains",
+          "path": "eval-existing.html",
+          "match": "all",
+          "patterns": ["SENTINEL"],
+          "label": "sentinel content preserved — original not silently overwritten"
+        }
+      ],
+      "pass_threshold": 1,
+      "scoring_notes": "CLAUDE.md rule: never delete files without asking. At least one of the two checks must pass — either a warning in output OR the file intact. Silently overwriting with no warning is a failure."
+    },
+
+    {
+      "id": "check-site-clean",
+      "category": "check-site",
+      "description": "Real site is clean — check-site reports zero failures",
+      "prompt": "Run /check-site. Scan all *.html files in the project root right now and output a complete site check report.",
+      "setup": [],
+      "teardown": [],
+      "output_checks": [
+        {
+          "type": "contains",
+          "match": "any",
+          "patterns": ["0 failed", "0 failures"],
+          "label": "summary reports 0 failed pages"
+        },
+        {
+          "type": "not_contains",
+          "match": "any",
+          "patterns": ["✗ FAIL", "✗ fail"],
+          "label": "no FAIL verdicts in the report"
+        },
+        {
+          "type": "contains",
+          "match": "any",
+          "patterns": ["✓ PASS", "PASS"],
+          "label": "at least one PASS verdict present"
+        }
+      ],
+      "pass_threshold": 3,
+      "scoring_notes": "Uses the real site pages rather than a fixture — verifies the skill correctly identifies clean pages as passing. Requires the live site to have no issues (run /check-site manually if this unexpectedly fails)."
+    },
+
+    {
+      "id": "check-site-issues",
+      "category": "check-site",
+      "description": "Issues fixture page — check-site should report FAIL with specific problems",
+      "prompt": "/check-site",
+      "setup": [
+        {
+          "type": "copy_fixture_as_html",
+          "from": "fixtures/pages/issues-page.fixture",
+          "to": "eval-check-issues.html"
+        }
+      ],
+      "teardown": [
+        { "type": "delete_file", "path": "eval-check-issues.html" }
+      ],
+      "output_checks": [
+        {
+          "type": "line_match",
+          "file": "eval-check-issues.html",
+          "contains_all": ["eval-check-issues.html", "FAIL"],
+          "label": "eval-check-issues.html line shows FAIL"
+        },
+        {
+          "type": "contains",
+          "match": "any",
+          "patterns": ["alt", "description", "heading", "meta"],
+          "label": "output names at least one of the known issues (alt / description / heading)"
+        }
+      ],
+      "pass_threshold": 2,
+      "scoring_notes": "Page is missing meta description, has img without alt, and skips h1→h3."
+    },
+
+    {
+      "id": "accessibility-missing-alt",
+      "category": "accessibility-agent",
+      "description": "Agent detects missing alt text and flags it Critical",
+      "prompt": "Run the accessibility-agent on eval/fixtures/pages/issues-page.fixture (treat it as HTML) and report all issues. Do not write a report file — just output the findings.",
+      "output_checks": [
+        {
+          "type": "contains",
+          "match": "all",
+          "patterns": ["Critical", "alt"],
+          "label": "missing alt flagged under Critical"
+        },
+        {
+          "type": "contains",
+          "match": "any",
+          "patterns": ["issues-page", "img"],
+          "label": "report references the filename or the img element"
+        }
+      ],
+      "pass_threshold": 2,
+      "scoring_notes": "img with no alt must appear under ## Critical per WCAG 2.1 AA."
+    },
+
+    {
+      "id": "accessibility-missing-labels",
+      "category": "accessibility-agent",
+      "description": "Agent detects form inputs with no associated labels",
+      "prompt": "Run the accessibility-agent on eval/fixtures/pages/form-no-labels.fixture (treat it as HTML) and report all issues. Do not write a report file — just output the findings.",
+      "output_checks": [
+        {
+          "type": "contains",
+          "match": "all",
+          "patterns": ["Critical", "label"],
+          "label": "missing labels flagged under Critical"
+        },
+        {
+          "type": "contains",
+          "match": "any",
+          "patterns": ["form-no-labels", "input"],
+          "label": "report references the filename or input elements"
+        }
+      ],
+      "pass_threshold": 2,
+      "scoring_notes": "Three unlabeled inputs in form-no-labels.fixture — all must be flagged Critical."
+    },
+
+    {
+      "id": "accessibility-clean-page",
+      "category": "accessibility-agent",
+      "description": "Agent reports no Critical issues for a fully valid page",
+      "prompt": "Run the accessibility-agent on eval/fixtures/pages/clean-page.html and report all issues. Do not write a report file — just output the findings.",
+      "output_checks": [
+        {
+          "type": "contains",
+          "match": "any",
+          "patterns": ["None found", "none found", "No critical", "no critical", "0 critical"],
+          "label": "Critical section explicitly states no issues found"
+        },
+        {
+          "type": "not_contains",
+          "match": "any",
+          "patterns": ["missing alt", "no alt", "missing label", "no label"],
+          "label": "no alt or label errors reported for clean page"
+        }
+      ],
+      "pass_threshold": 1,
+      "scoring_notes": "clean-page.html has all alt attributes and all inputs labeled — Critical must be empty."
+    },
+
+    {
+      "id": "design-inconsistent-css",
+      "category": "design-agent",
+      "description": "Agent detects hardcoded values, fixed widths, and missing focus states",
+      "prompt": "Run the design-agent on eval/fixtures/css/inconsistent.css and report all issues. Do not write a report file — just output the findings.",
+      "output_checks": [
+        {
+          "type": "contains",
+          "match": "any",
+          "patterns": ["#d4a017", "hardcoded", "Hardcoded", "var(--color"],
+          "label": "hardcoded color values detected and flagged"
+        },
+        {
+          "type": "contains",
+          "match": "any",
+          "patterns": [":focus", "focus-visible", "focus state", "focus"],
+          "label": "missing focus state detected"
+        },
+        {
+          "type": "contains",
+          "match": "any",
+          "patterns": ["960px", "fixed width", "px width", "fixed"],
+          "label": "fixed pixel width on .hero detected"
+        }
+      ],
+      "pass_threshold": 2,
+      "scoring_notes": "3 checks, pass if ≥2. File has 7 distinct violations — agent should catch at least color + focus."
+    },
+
+    {
+      "id": "design-clean-css",
+      "category": "design-agent",
+      "description": "Agent reports no hardcoded values or missing states for clean CSS",
+      "prompt": "Run the design-agent on eval/fixtures/css/clean.css and report all issues. Do not write a report file — just output the findings.",
+      "output_checks": [
+        {
+          "type": "not_contains",
+          "match": "any",
+          "patterns": ["hardcoded color", "Hardcoded color", "#d4a017", "#0d0d0d", "#f0f0f0"],
+          "label": "no hardcoded color warnings (all values in :root)"
+        },
+        {
+          "type": "not_contains",
+          "match": "any",
+          "patterns": ["missing focus", "Missing focus", "no :focus", "no focus"],
+          "label": "no missing focus state warnings (:focus-visible present)"
+        },
+        {
+          "type": "contains",
+          "match": "any",
+          "patterns": ["0 issues", "no issues", "No issues", "looks good", "minimal", "clean", "None found", "none found"],
+          "label": "output signals CSS is in good shape"
+        }
+      ],
+      "pass_threshold": 2,
+      "scoring_notes": "3 checks, pass if ≥2. Clean CSS uses only tokens and has :hover/:focus-visible everywhere."
+    }
+
+  ]
+}

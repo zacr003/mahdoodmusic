@@ -14,6 +14,8 @@ You are scaffolding a new page for the Mahdood portfolio site. The page name is:
 
 3. Read `docs/style-guide.md` for design tokens and component patterns to use.
 
+3.5. Check whether `$0.html` already exists in the project root. If it does, STOP and tell the user — do not overwrite it. Ask them to confirm they want to replace it or choose a different name.
+
 4. Create a new file called `$0.html` in the root directory with:
    - The complete HTML boilerplate (doctype, lang, charset, viewport, description, title, stylesheet link)
    - The exact nav markup copied from index.html

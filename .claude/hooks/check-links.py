@@ -12,7 +12,7 @@ PROJECT_DIR = os.environ.get("CLAUDE_PROJECT_DIR", os.getcwd())
 def find_html_files():
     html_files = []
     for fname in os.listdir(PROJECT_DIR):
-        if fname.endswith(".html"):
+        if fname.endswith(".html") and not fname.startswith("eval-"):
             html_files.append(fname)
     return html_files
 

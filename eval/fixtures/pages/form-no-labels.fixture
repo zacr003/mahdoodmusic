@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="A form page used to test that the accessibility agent flags missing labels." />
+    <title>Form — Eval Fixture</title>
+    <link rel="stylesheet" href="styles/main.css" />
+  </head>
+  <body>
+
+    <nav class="site-nav">
+      <a href="#">Home</a>
+    </nav>
+
+    <main>
+      <section class="page-hero">
+        <h1>Contact</h1>
+      </section>
+
+      <section class="contact-content">
+        <h2>Get in Touch</h2>
+        <form>
+          <!-- INTENTIONAL ISSUE 1: no <label> for name input -->
+          <input type="text" id="name" name="name" placeholder="Your name" />
+
+          <!-- INTENTIONAL ISSUE 2: no <label> for email input -->
+          <input type="email" id="email" name="email" placeholder="Email address" />
+
+          <!-- INTENTIONAL ISSUE 3: textarea also unlabeled -->
+          <textarea id="message" name="message" placeholder="Message"></textarea>
+
+          <button type="submit">Send Message</button>
+        </form>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>&copy; 2026 Eval Fixture.</p>
+    </footer>
+
+    <script src="scripts/main.js"></script>
+  </body>
+</html>

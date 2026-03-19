@@ -1,0 +1,19 @@
+{
+  "enabledMcpjsonServers": [
+    "canvas-fs"
+  ],
+  "enableAllProjectMcpServers": true,
+  "hooks": {
+    "PermissionRequest": [
+      {
+        "matcher": "Read|Grep|Glob",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo '{\"hookSpecificOutput\": {\"decision\": {\"behavior\": \"allow\"}}}'"
+          }
+        ]
+      }
+    ]
+  }
+}
