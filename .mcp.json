@@ -2,7 +2,7 @@
   "mcpServers": {
     "canvas-fs": {
       "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-filesystem", "/Users/crunchyzac/cc-self-train/workspace/canvas-site"],
+      "args": ["-y", "@modelcontextprotocol/server-filesystem", "/Users/crunchyzac/cc-self-train/workspace/mahdood-canvas-site"],
       "env": {}
     }
   }
