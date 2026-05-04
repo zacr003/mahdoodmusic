@@ -38,6 +38,17 @@ Use mcp__canvas-fs__read_file to read each remaining file and mcp__canvas-fs__wr
 ### 4. Copy scripts/
 
 Read `scripts/main.js` and write it to `dist/scripts/main.js` unchanged.
+Read `scripts/blog.js` and write it to `dist/scripts/blog.js` unchanged.
+
+### 4b. Copy posts/
+
+Use Bash to copy the entire `posts/` directory to `dist/posts/`:
+
+```
+cp -r posts dist/posts
+```
+
+This directory contains `manifest.json` and the `.md` files that `blog.js` fetches at runtime.
 
 ### 5. Minify CSS
 
