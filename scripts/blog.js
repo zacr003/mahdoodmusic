@@ -318,10 +318,9 @@ async function initPostPage() {
 // ── Router ─────────────────────────────────────────────────────────────────
 
 (function init() {
-  const page = window.location.pathname.split('/').pop();
-  if (page === 'blog.html' || page === '') {
+  if (document.querySelector('.blog-grid')) {
     initBlogIndex();
-  } else if (page === 'post.html') {
+  } else if (document.querySelector('.post-page__content')) {
     initPostPage();
   }
 })();
