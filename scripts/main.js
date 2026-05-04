@@ -4,10 +4,11 @@
 // Highlight the link that matches the current page
 (function setActiveNav() {
   const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+  // post.html is a blog post template — treat it as part of the Blog section
+  const activePage = currentPage === 'post.html' ? 'blog.html' : currentPage;
   const navLinks = document.querySelectorAll('.nav-links a');
   navLinks.forEach(link => {
-    const linkPage = link.getAttribute('href');
-    if (linkPage === currentPage) {
+    if (link.getAttribute('href') === activePage) {
       link.classList.add('active');
     }
   });
