@@ -1080,6 +1080,66 @@ main {
     grid-template-columns: 1fr;
     max-width: 360px;
   }
+
+  /* Tighter horizontal gutters on small screens */
+  .container,
+  .nav-inner {
+    padding-left: var(--space-md);
+    padding-right: var(--space-md);
+  }
+
+  /* Reduce xl section padding to lg */
+  .music-section,
+  .shows-section,
+  .live-section,
+  .blog-listing,
+  .faq-content,
+  .post-page {
+    padding-top: var(--space-lg);
+    padding-bottom: var(--space-lg);
+  }
+
+  .about-grid,
+  .contact-grid {
+    padding-top: var(--space-lg);
+    padding-bottom: var(--space-lg);
+  }
+
+  /* Page hero (inner pages) */
+  .page-hero {
+    padding: var(--space-lg) var(--space-md);
+  }
+
+  /* Main hero: keep xl top/bottom but tighten sides */
+  .hero {
+    padding: var(--space-xl) var(--space-md);
+  }
+
+  .hero-tagline {
+    margin-bottom: var(--space-lg);
+  }
+
+  .hero-cta {
+    margin-bottom: var(--space-lg);
+  }
+
+  /* Shows CTA block */
+  .shows-cta {
+    padding: var(--space-lg);
+  }
+
+  /* Footer social: wrap and center so links never overflow */
+  .footer-social {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-md);
+  }
+
+  /* Center single-column shorts grid */
+  .shorts-grid {
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 /* ── Tag filter bar ── */
