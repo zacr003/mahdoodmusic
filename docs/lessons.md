@@ -28,6 +28,13 @@ Updated by /sync at the end of each session.
 - Body explains "why", not "what"
 - Never auto-commit without asking first
 
+## Images
+- Store all site images in `images/` at the project root
+- Use `object-fit: cover` + `object-position: center top` for portrait photos — keeps the face in frame
+- To center a max-width constrained block inside a flex column, add `margin: 0 auto` to the element
+- Use `max-height: 100%` on images inside flex containers to prevent them from overflowing
+- Scope page-specific layouts with a body class (e.g. `.page-home`) — avoids leaking layout rules to other pages
+
 ## Workflow
 - Never delete files without asking
 - Always explain what you're about to do before doing it

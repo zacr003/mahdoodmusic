@@ -4,7 +4,6 @@ Current work queue. Updated by /sync.
 Format: `- [ ]` open · `- [x]` done · `- [~]` in progress
 
 ## Up Next
-- [ ] Replace photo placeholder on about.html with a real image
 - [ ] Set up Formspree (or similar) on contact form for live email delivery
 - [ ] Add real blog posts to posts/
 - [ ] Review all pages at 375px after mobile CSS improvements
@@ -20,3 +19,5 @@ Format: `- [ ]` open · `- [x]` done · `- [~]` in progress
 - [x] Set up global ~/.claude/CLAUDE.md
 - [x] Set up global slash commands (standup, todo, explain, pr, cleanup, test, debug, sync)
 - [x] Resolve GitHub push — SSH key confirmed working, branch up to date with origin/main
+- [x] Add artist photos — mahdood-hero.jpg (home hero split) and mahdood-photo.jpg (about page)
+- [x] Redesign home hero as split layout (text + photo, no-scroll 100vh)

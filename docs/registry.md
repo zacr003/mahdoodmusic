@@ -46,6 +46,18 @@ Updated by /sync when new things are added.
 | `.post-card` | Block | Blog listing card |
 | `.tag-filter` | Block | Tag filter button bar |
 | `.post-page` | Block | Single post page layout |
+| `.page-home` | Modifier (body) | Locks home page to 100vh flex column — no scroll |
+| `.hero--split` | Modifier | Two-column hero: text left, photo right |
+| `.hero__content` | Element | Left column of split hero |
+| `.hero__media` | Element | Right column of split hero |
+| `.hero__photo` | Element | Photo inside hero__media |
+| `.about-photo` | Block | Full-width photo on about page bio grid |
+
+## Images (`images/`)
+| File | Used On | Description |
+|---|---|---|
+| `mahdood-hero.jpg` | index.html | Hero split layout — right column |
+| `mahdood-photo.jpg` | about.html | Bio section — right column |
 
 ## Scripts
 | File | Purpose |
