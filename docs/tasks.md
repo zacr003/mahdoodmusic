@@ -4,9 +4,6 @@ Current work queue. Updated by /sync.
 Format: `- [ ]` open · `- [x]` done · `- [~]` in progress
 
 ## Up Next
-- [ ] Push to GitHub (blocked: SSH key issue — switch to gh auth login or HTTPS with PAT)
-
-## Backlog
 - [ ] Replace photo placeholder on about.html with a real image
 - [ ] Set up Formspree (or similar) on contact form for live email delivery
 - [ ] Add real blog posts to posts/
@@ -22,3 +19,4 @@ Format: `- [ ]` open · `- [x]` done · `- [~]` in progress
 - [x] Set up hook system (site-summary, enforce-alt, validate-html, check-links, check-accessibility)
 - [x] Set up global ~/.claude/CLAUDE.md
 - [x] Set up global slash commands (standup, todo, explain, pr, cleanup, test, debug, sync)
+- [x] Resolve GitHub push — SSH key confirmed working, branch up to date with origin/main
